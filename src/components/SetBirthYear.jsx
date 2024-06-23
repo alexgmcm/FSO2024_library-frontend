@@ -4,8 +4,8 @@ import { useMutation } from "@apollo/client";
 import Select from 'react-select';
 
 
-const SetBirthYear = ({authors}) => {
-
+const SetBirthYear = ({authors, token}) => {
+ 
   const options = authors.map((a) => {return({value: a.name, label: a.name})} )
   console.log(options)
   const [name, setName] = useState("");
@@ -20,6 +20,10 @@ const SetBirthYear = ({authors}) => {
         editBorn({  variables: { name, setBornTo: parseInt(born) } })
         setBorn("")
         setName("")
+    }
+
+    if (!token){
+      return(<></>)
     }
 
     return(<>
