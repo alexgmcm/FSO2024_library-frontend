@@ -19,6 +19,7 @@ const Books = (props) => {
   }
 
   const books = result.data.allBooks;
+  console.log(books)
 
   if (!options && books) {
     const unique_genres = new Set(
